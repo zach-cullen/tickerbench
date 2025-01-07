@@ -31,7 +31,11 @@ def get_apple():
 
   # Fetch stock data
   data = fetch_stock_data(ticker, start_date, end_date)
+  
+  # save data
+  save_data_to_csv(data)
 
+def save_data_to_csv(data):
   if data is not None:
       # Save the data to a CSV file
       output_file = f"test_data.csv"
