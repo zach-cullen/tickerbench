@@ -1,11 +1,11 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import pandas as pd
-from collector.fetcher.stock_fetcher import fetch_stock_data
+from app.fetcher.stock_fetcher import fetch_stock_data
 
 class TestFetchStockData(unittest.TestCase):
 
-    @patch("collector.fetcher.stock_fetcher.yf.Ticker")
+    @patch("app.fetcher.stock_fetcher.yf.Ticker")
     def test_fetch_stock_data_success(self, mock_ticker):
         # Mocking the DataFrame to return
         mock_data = pd.DataFrame({
@@ -27,7 +27,7 @@ class TestFetchStockData(unittest.TestCase):
         self.assertIsInstance(result, pd.DataFrame)
         pd.testing.assert_frame_equal(result, mock_data)
 
-    @patch("collector.fetcher.stock_fetcher.yf.Ticker")
+    @patch("app.fetcher.stock_fetcher.yf.Ticker")
     def test_fetch_stock_data_invalid_ticker(self, mock_ticker):
         # Simulate an empty DataFrame for an invalid ticker
         mock_ticker_instance = MagicMock()
@@ -41,7 +41,7 @@ class TestFetchStockData(unittest.TestCase):
         self.assertIsInstance(result, pd.DataFrame)
         self.assertTrue(result.empty)
 
-    @patch("collector.fetcher.stock_fetcher.yf.Ticker")
+    @patch("app.fetcher.stock_fetcher.yf.Ticker")
     def test_fetch_stock_data_api_error(self, mock_ticker):
         # Simulate an exception
         mock_ticker.side_effect = Exception("API error")
@@ -52,7 +52,7 @@ class TestFetchStockData(unittest.TestCase):
         # Assertions
         self.assertIsNone(result)
 
-    @patch("collector.fetcher.stock_fetcher.yf.Ticker")
+    @patch("app.fetcher.stock_fetcher.yf.Ticker")
     def test_fetch_stock_data_invalid_date_format(self, mock_ticker):
         # Simulate a ValueError for invalid date format
         mock_ticker_instance = MagicMock()

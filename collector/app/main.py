@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from concurrent.futures import ThreadPoolExecutor
-import fetcher.stock_fetcher as fetcher
+import app.fetcher.stock_fetcher as fetcher
 
 
 app = Flask(__name__)
