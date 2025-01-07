@@ -27,7 +27,7 @@ $(VENV_DIR)/bin/activate: requirements.txt
 # Run the Flask application
 run: $(VENV_DIR)/bin/activate
 	@echo "Running Flask application..."
-	$(PYTHON_BIN) app.py
+	$(PYTHON_BIN) main.py
 
 # Clean up
 clean:
