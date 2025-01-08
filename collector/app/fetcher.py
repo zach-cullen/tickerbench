@@ -22,22 +22,15 @@ def fetch_stock_data(ticker: str, start_date: str, end_date: str):
         print(f"An error occurred: {e}")
         return None
 
-def get_apple():
-  ticker = "AAPL"
-  start_date = "2024-01-01"
-  end_date = "2024-12-31"
+# def get_apple():
+#   ticker = "AAPL"
+#   start_date = "2024-01-01"
+#   end_date = "2024-12-31"
 
-  print(f"Getting data for {ticker}")
+#   print(f"Getting data for {ticker}")
 
-  # Fetch stock data
-  data = fetch_stock_data(ticker, start_date, end_date)
+#   # Fetch stock data
+#   data = fetch_stock_data(ticker, start_date, end_date)
   
-  # save data
-  save_data_to_csv(data)
-
-def save_data_to_csv(data):
-  if data is not None:
-      # Save the data to a CSV file
-      output_file = f"test_data.csv"
-      data.to_csv(output_file)
-      print(f"Historical data saved to {output_file}")
+#   # save data
+#   save_data_to_csv(data)
